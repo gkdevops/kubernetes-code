@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nginx-deamonset
+  labels:
+    app: monitor
+spec:
+  selector:
+    matchLabels:
+      app: monitor
+  template:
+    metadata:
+      labels:
+        app: monitor
+    spec:
+      containers:
+      - name: monitor
+        image: nginx:1.15.1
+        ports:
+        - containerPort: 80
+      tolerations:
+      - key: "hardware"
+        operator: "Equal"
+        value: "slow"
+        effect: "NoSchedule"
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule 

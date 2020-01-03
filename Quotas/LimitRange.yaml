@@ -1,0 +1,25 @@
+# The LimitRange object is used to set the default resource requests and limits
+# as well as minimum and maximum constraints for each pod in a namespace.
+
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: cpu-mem-limitrange
+spec:
+  limits:
+  - default:  # default limit
+      memory: 102Mi
+      cpu: 0.3
+    defaultRequest:  # default request
+      memory: 102Mi
+      cpu: 0.2
+    max:  # max limit
+      memory: 800Mi
+      cpu: 3
+    min:  # min request
+      memory: 100Mi
+      cpu: 0.2
+    maxLimitRequestRatio:  # max value for limit / request
+      memory: 2
+      cpu: 2
+    type: Container # limit type, support: Container / Pod / PersistentVolumeClaim
