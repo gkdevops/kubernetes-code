@@ -20,8 +20,8 @@ spec:
         ports:
         - containerPort: 80
         env:
-        - name: JAVA_HOME_PRD
+        - name: JAVA_HOME
           valueFrom:
             configMapKeyRef:
-              name: java-prd
-              key: JAVA_HOME_PRD
+              name: java-env
+              key: JAVA_HOME

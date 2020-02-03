@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: nginx
@@ -20,7 +20,7 @@ spec:
         ports:
         - containerPort: 80
       tolerations:
-      - key: "hardware"
+      - key: "app"
         operator: "Equal"
-        value: "slow"
+        value: "datascience"
         effect: "NoSchedule"

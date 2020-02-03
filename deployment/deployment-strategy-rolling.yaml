@@ -10,7 +10,7 @@ spec:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 50%
-      maxUnavailable: 25%
+      maxUnavailable: 10%
   selector:
     matchLabels:
       app: nginx

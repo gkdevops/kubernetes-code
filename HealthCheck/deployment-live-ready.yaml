@@ -19,12 +19,14 @@ spec:
         image: nginx:1.9.1
         ports:
         - containerPort: 80
+        # Readiness probe will check whether the application ready to start serving the traffic. 
         readinessProbe:
           httpGet:
             path: /
             port: 80
           initialDelaySeconds: 15
           periodSeconds: 20
+        # Liveness probe will constantly check for the application status till the POD is terminated
         livenessProbe:
           httpGet:
             path: /

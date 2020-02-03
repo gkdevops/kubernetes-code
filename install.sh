@@ -5,7 +5,7 @@ swapoff -a
 
 sudo apt-get update
 
-sudo apt-get install \
+sudo apt-get install -y\
     apt-transport-https \
     ca-certificates \
     curl \
@@ -19,7 +19,7 @@ sudo add-apt-repository \
    stable"
 
 sudo apt-get update
-sudo apt-get install docker-ce
+sudo apt-get install -y docker-ce
 
 # Install Kubernetes
 sudo apt-get update && sudo apt-get install -y apt-transport-https curl
