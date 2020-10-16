@@ -3,7 +3,7 @@ kind: Service
 metadata:  
   name: clusterip-service
 spec:
-  selector:    
+  selector: 
     app: nginx-deploy
   type: ClusterIP
   ports:  

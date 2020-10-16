@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: sales-app
   namespace: development
 spec:
   replicas: 4
   selector:
     matchLabels:
-      app: nginx
+      app: salesapp
   template:
     metadata:
       labels:
-        app: nginx
+        app: salesapp
     spec:
       containers:
-      - name: nginx-cont
-        image: nginx:1.15.1
+      - name: sales-app-container
+        image: nginx:1.16.1
         ports:
         - containerPort: 80
         resources:         

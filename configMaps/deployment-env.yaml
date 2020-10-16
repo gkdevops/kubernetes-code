@@ -23,5 +23,5 @@ spec:
         - name: JAVA_HOME
           valueFrom:
             configMapKeyRef:
-              name: java-env
+              name: sales-dev
               key: JAVA_HOME

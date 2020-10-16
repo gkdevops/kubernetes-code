@@ -4,7 +4,7 @@ metadata:
   name: sales-app
   namespace: development
 spec:
-  replicas: 4
+  replicas: 3
   selector:
     matchLabels:
       app: my-replica

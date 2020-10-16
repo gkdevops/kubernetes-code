@@ -2,7 +2,7 @@
 apiVersion: v1
 # Section 2 - Which type of Object we want to create
 kind: Pod
-# Section 3 - Meta date of the object we are creating
+# Section 3 - Meta data of the object we are creating
 metadata:
   name: sample-pod
   labels:
