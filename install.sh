@@ -19,7 +19,7 @@ sudo add-apt-repository \
    stable"
 
 sudo apt-get update
-sudo apt-get install -y docker-ce
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 # Install Kubernetes
 sudo apt-get update && sudo apt-get install -y apt-transport-https curl
