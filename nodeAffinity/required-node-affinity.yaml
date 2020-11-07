@@ -1,3 +1,4 @@
+---
 # For required: pod will get scheduled only on a node that has a <specified> label
 apiVersion: v1
 kind: Pod
