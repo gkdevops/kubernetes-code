@@ -1,3 +1,5 @@
+---
+# the pod will prefer a node that has a disktype=ssd label
 apiVersion: v1
 kind: Pod
 metadata:
