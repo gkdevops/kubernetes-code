@@ -20,7 +20,7 @@ spec:
         ports:
         - containerPort: 80
       tolerations:
-      - key: "app"
+      - key: "type"
         operator: "Equal"
-        value: "datascience"
+        value: "2xlarge"
         effect: "NoSchedule"

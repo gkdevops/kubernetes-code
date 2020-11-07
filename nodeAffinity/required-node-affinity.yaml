@@ -10,10 +10,10 @@ spec:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: env
+          - key: disktype
             operator: In
             values:
-            - development         
+            - ssd         
   containers:
   - name: nginx
     image: nginx

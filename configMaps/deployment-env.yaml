@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: sales-deployment
   labels:
-    app: nginx
+    app: sales
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx
+      app: sales
   template:
     metadata:
       labels:
-        app: nginx
+        app: sales
     spec:
       containers:
-      - name: nginx-cont
+      - name: sales-app
         image: nginx:1.9.1
         ports:
         - containerPort: 80
@@ -25,3 +25,8 @@ spec:
             configMapKeyRef:
               name: sales-dev
               key: JAVA_HOME
+        - name: API_ENDPOINT
+          valueFrom:
+            configMapKeyRef:
+              name: sales-dev
+              key: API_ENDPOINT

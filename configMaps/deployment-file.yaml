@@ -22,6 +22,7 @@ spec:
         volumeMounts:
           - name: config-prd-volume
             mountPath: /usr/src/app/config
+            subPath: config.xml
       volumes:
       - name: config-prd-volume
         configMap:
