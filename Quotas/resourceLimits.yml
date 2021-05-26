@@ -13,9 +13,9 @@ spec:
      # A core can be further broken down into 1000 millicores
       requests:
         cpu: "200m"
-        memory: "801Mi"
+        memory: "100Mi"
      # This will be tbe maximum amount of resources your POD can claim
      # To provide the requests and limits as the same. BEST practise
       limits:
-        cpu: "325m"
-        memory: "875Mi"
+        cpu: "200m"
+        memory: "100Mi"

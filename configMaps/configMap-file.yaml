@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
+metadata:
+  name: config-prd
 data:
   config.xml: |
     <xml>
     <value1>100</value1>
     <value2>abc</value2>
     </xml>
-metadata:
-  name: config-prd

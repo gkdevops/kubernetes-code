@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sales-app
-  namespace: development
 spec:
   replicas: 4
   selector:

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:  
-  name: loadbalacer-service
+  name: loadbalancer-service
 spec:
   selector:    
     app: nginx-deploy

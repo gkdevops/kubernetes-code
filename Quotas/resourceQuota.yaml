@@ -7,3 +7,9 @@ spec:
     cpu: "1"
     memory: 700Mi
     pods: "4"
+    services: "2"
+    secrets: "3"
+    count/configmaps: "2"
+    count/deployments.apps: "4"
+    count/jobs.batch: "5"
+    count/cronjobs.batch: "3"
