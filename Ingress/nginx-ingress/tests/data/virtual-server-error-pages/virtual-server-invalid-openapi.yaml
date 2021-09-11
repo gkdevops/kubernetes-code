@@ -1,0 +1,34 @@
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServer
+metadata:
+  name: virtual-server
+spec:
+  host: virtual-server.example.com
+  upstreams:
+  - name: backend2
+    service: backend2-svc
+    port: 80
+  - name: backend1
+    service: backend1-svc
+    port: 80
+  routes:
+  - path: "/backend1"
+    errorPages:
+      - codes: 308
+        redirect:
+          code: "101"
+          url: False
+    action:
+      pass: backend1
+  - path: "/backend2"
+    errorPages:
+      - codes: 502
+        return:
+          code: "100"
+          type: 0
+          body: False
+          headers:
+          - name: True
+            value: False
+    action:
+      pass: backend2

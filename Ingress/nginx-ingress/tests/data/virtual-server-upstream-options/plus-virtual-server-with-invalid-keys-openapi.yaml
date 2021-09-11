@@ -1,0 +1,72 @@
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServer
+metadata:
+  name: virtual-server
+spec:
+  host: virtual-server.example.com
+  upstreams:
+  - name: backend2
+    service: backend2-svc
+    port: 80
+    sessionCookie:
+      name: True
+      path: 100
+      expires: False
+      domain: 0
+      httpOnly: "yes"
+      secure: "no"
+    healthCheck:
+      enable: "yes"
+      path: 200
+      interval: 1.5
+      jitter: 2.0
+      fails: "one"
+      passes: "one"
+      port: "80"
+      connect-timeout: False
+      read-timeout: 100
+      send-timeout: 200
+      headers:
+        - name: 100
+          value: 100
+      statusMatch: 100
+    slow-start: True
+    queue:
+      size: "one"
+      timeout: 1
+  - name: backend1
+    service: backend1-svc
+    port: 80
+    sessionCookie:
+      name: True
+      path: 100
+      expires: False
+      domain: 0
+      httpOnly: "yes"
+      secure: "no"
+    healthCheck:
+      enable: "yes"
+      path: 200
+      interval: 1.5
+      jitter: 2.0
+      fails: "one"
+      passes: "one"
+      port: "80"
+      connect-timeout: False
+      read-timeout: 100
+      send-timeout: 200
+      headers:
+        - name: 100
+          value: 100
+      statusMatch: 100
+    slow-start: True
+    queue:
+      size: "one"
+      timeout: 1
+  routes:
+  - path: "/backend1"
+    action:
+      pass: backend1
+  - path: "/backend2"
+    action:
+      pass: backend2

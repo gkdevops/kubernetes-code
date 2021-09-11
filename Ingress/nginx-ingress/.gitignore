@@ -1,0 +1,55 @@
+# OSX leaves these everywhere on SMB shares
+._*
+
+# OSX trash
+.DS_Store
+
+# Eclipse files
+.classpath
+.project
+.settings/**
+
+# Emacs save files
+*~
+\#*\#
+.\#*
+
+# Vim-related files
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+
+# Ingress Controller binaries
+osx-nginx-ingress
+nginx-ingress
+!nginx-ingress/
+osx-nginx-plus-ingress
+nginx-plus-ingress
+cmd/nginx-ingress/nginx-ingress
+
+# NGINX Plus license files
+tempdir/
+*.crt
+*.key
+
+# RHEL license
+rhel_license
+
+# Visual Studio Code settings
+.vscode
+
+# Default certificate and key
+default.pem
+
+# IntelliJ IDEA
+.idea
+
+# Platform specific CRD schema generation scripts
+hack/controller-gen-*
+
+# Ignore local docs dependencies
+docs-web/.netlify/state.json
+site/
+venv/

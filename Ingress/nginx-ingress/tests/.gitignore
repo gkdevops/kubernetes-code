@@ -1,0 +1,20 @@
+# IntelliJ project files
+.idea
+out
+gen
+
+# Junit-style report for Jenkins integration
+results.xml
+
+# Python specific files
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+.pytest_cache
+
+# Pytest HTML report
+*.html
+*.css 
+
+# Profiling report files
+*.prof

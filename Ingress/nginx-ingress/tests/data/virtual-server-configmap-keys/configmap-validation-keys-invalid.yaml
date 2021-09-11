@@ -1,0 +1,15 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: nginx-config
+  namespace: nginx-ingress
+data:
+  proxy-buffering: "invalid"
+  real-ip-recursive: "invalid"
+#  server-tokens: "there is no invalid value in nginx plus case"
+  lb-method: "invalid method"
+  max-fails: "invalid"
+  keepalive: "invalid"
+  proxy-protocol: "invalid proxy"
+  variables-hash-bucket-size: "0"
+  variables-hash-max-size: "-1024"

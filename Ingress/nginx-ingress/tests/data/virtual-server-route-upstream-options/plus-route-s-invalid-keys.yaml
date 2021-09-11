@@ -1,0 +1,38 @@
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServerRoute
+metadata:
+  name: backend2
+spec:
+  host: virtual-server-route.example.com
+  upstreams:
+  - name: backend2
+    service: backend2-svc
+    port: 80
+    sessionCookie:
+      name: ±!@£$%^&*()_+MyTestCookie
+      path: path
+      expires: one
+      domain: "$request_uri"
+    healthCheck:
+      enable: True
+      path: "invalid"
+      interval: 1.5d
+      jitter: invalid
+      fails: -5
+      passes: -1
+      port: -1
+      connect-timeout: invalid
+      read-timeout: m
+      send-timeout: d
+      headers:
+        - name: "`=1^&*"
+          value: "$one"
+      statusMatch: "invalid"
+    slow-start: " "
+    queue:
+      size: 0
+      timeout: "hour"
+  subroutes:
+  - path: "/backend2"
+    action:
+      pass: backend2
