@@ -32,8 +32,8 @@ sudo containerd config default | sudo tee /etc/containerd/config.toml
 # Restart containerd to ensure new configuration file usage:
 sudo systemctl restart containerd
 
-# Verify that containerd is running:
-sudo systemctl status containerd
+#--------------------------------------------
+# Install Kubernetes
 
 # Disable swap:
 sudo swapoff -a
@@ -60,7 +60,8 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 # Initialize the Cluster
 # Initialize the Kubernetes cluster on the control plane node using kubeadm (Note: This is only performed on the Control Plane Node):
-#sudo kubeadm init --pod-network-cidr 192.168.0.0/16 --kubernetes-version 1.24.0
+#kubeadm init --pod-network-cidr 192.168.0.0/16
+#kubeadm init
 
 # Install the Calico Network Add-On
 # On the control plane node, install Calico Networking:
