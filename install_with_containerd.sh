@@ -62,10 +62,10 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 # Initialize the Cluster
 # Initialize the Kubernetes cluster on the control plane node using kubeadm (Note: This is only performed on the Control Plane Node):
-kubeadm init --pod-network-cidr 192.168.0.0/16
+#kubeadm init --pod-network-cidr 192.168.0.0/16
 
 # Install the Calico Network Add-On
 # Only the control plane node, install Calico Networking:
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/tigera-operator.yaml
-curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/custom-resources.yaml -O
-kubectl create -f custom-resources.yaml
+#kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/tigera-operator.yaml
+#curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/custom-resources.yaml -O
+#kubectl create -f custom-resources.yaml
