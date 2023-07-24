@@ -29,6 +29,8 @@ sudo mkdir -p /etc/containerd
 # Generate default containerd configuration and save to the newly created default file:
 sudo containerd config default | sudo tee /etc/containerd/config.toml
 
+sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
+
 # Restart containerd to ensure new configuration file usage:
 sudo systemctl restart containerd
 
@@ -53,15 +55,14 @@ EOF
 sudo apt-get update
 
 # Install Kubernetes packages (Note: If you get a dpkg lock message, just wait a minute or two before trying the command again):
-sudo apt-get install -y kubelet=1.24.0-00 kubeadm=1.24.0-00 kubectl=1.24.0-00
+sudo apt-get install -y kubelet=1.26.7-00 kubeadm=1.26.7-00 kubectl=1.26.7-00
 
 # Turn off automatic updates:
 sudo apt-mark hold kubelet kubeadm kubectl
 
 # Initialize the Cluster
 # Initialize the Kubernetes cluster on the control plane node using kubeadm (Note: This is only performed on the Control Plane Node):
-#kubeadm init --pod-network-cidr 192.168.0.0/16
-#kubeadm init
+kubeadm init --pod-network-cidr 192.168.0.0/16
 
 # Install the Calico Network Add-On
 # On the control plane node, install Calico Networking:
