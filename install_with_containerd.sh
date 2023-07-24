@@ -65,5 +65,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 kubeadm init --pod-network-cidr 192.168.0.0/16
 
 # Install the Calico Network Add-On
-# On the control plane node, install Calico Networking:
-# kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+# Only the control plane node, install Calico Networking:
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/tigera-operator.yaml
+curl https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/custom-resources.yaml -O
+kubectl create -f custom-resources.yaml
