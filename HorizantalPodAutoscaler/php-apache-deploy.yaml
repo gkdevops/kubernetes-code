@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: php-apache
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
       run: php-apache
@@ -20,6 +20,6 @@ spec:
           protocol: TCP
         resources:
           limits:
-            cpu: 500m
+            cpu: 300m
           requests:
-            cpu: 200m
+            cpu: 100m

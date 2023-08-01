@@ -1,14 +1,16 @@
+---
 apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: basic-cluster
+  name: valaxy-eks-cluster
   region: us-east-1
+  version: 1.27
 
 managedNodeGroups:
-  - name: eks-ng
+  - name: worker-node-group-1
     minSize: 2
-    maxSize: 2
+    maxSize: 5
     desiredCapacity: 2
     instanceType: t3.small
     ssh:
@@ -22,3 +24,13 @@ managedNodeGroups:
         efs: true
         cloudWatch: true
         albIngress: true
+
+addons:
+- name: aws-ebs-csi-driver
+  wellKnownPolicies:
+    ebsCSIController: true
+
+cloudWatch:
+    clusterLogging:
+        enableTypes: ["audit", "authenticator", "controllerManager"]
+        logRetentionInDays: 60
