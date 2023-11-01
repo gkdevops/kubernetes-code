@@ -12,4 +12,7 @@ metadata:
 spec:
   containers:
   - name: sample-container
-    image: nginx:latest 
+    image: nginx:latest
+    resources:
+      limits:
+        memory: 50M 
