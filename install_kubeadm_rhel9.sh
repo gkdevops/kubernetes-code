@@ -42,14 +42,15 @@ sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 
 sudo systemctl enable kubelet.service
 
-## Run all Below commands as non-root user
+# Bootstrapping kubeadm cluster
+#kubeadm init --pod-network-cidr 192.168.0.0/16
+
+## Once cluster is bootstrapped, switch to non-root user and Run all Below commands
+
 #mkdir -p $HOME/.kube
 #sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 #sudo chown $(id -u):$(id -g) $HOME/.kube/config
 #kubectl get nodes
-
-# Bootstrapping kubeadm cluster
-#kubeadm init --pod-network-cidr 192.168.0.0/16
 
 # Deploying Networking Addon from Calico
 #kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/tigera-operator.yaml
