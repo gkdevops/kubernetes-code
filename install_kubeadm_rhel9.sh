@@ -1,3 +1,4 @@
+# DisablE swap memory
 sudo swapoff -a
 sudo modprobe overlay
 sudo modprobe br_netfilter
@@ -7,6 +8,7 @@ overlay
 br_netfilter
 EOF
 
+# Update Kernel properties
 sudo tee /etc/sysctl.d/k8s.conf <<EOT
 net.bridge.bridge-nf-call-iptables  = 1
 net.ipv4.ip_forward                 = 1
@@ -15,6 +17,7 @@ EOT
 
 sudo sysctl --system
 
+# Installing ContainerD
 sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
 
 sudo dnf install containerd.io -y
@@ -28,6 +31,7 @@ sudo systemctl restart containerd
 sudo setenforce 0
 sudo sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 
+# Kubernetes
 cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
