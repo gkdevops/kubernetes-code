@@ -11,15 +11,13 @@ eksctl create iamserviceaccount \
 ARN=$(aws iam get-role --role-name AmazonEKS_EBS_CSI_DriverRole --query 'Role.Arn' --output text)
 
 eksctl create addon --cluster valaxy-logging --name aws-ebs-csi-driver --version latest --service-account-role-arn $ARN --force
-
+```
 kubectl create namespace logging
 
 helm repo add elastic https://helm.elastic.co
 
-helm install elasticsearch \
- --set replicas=1 \
- --set volumeClaimTemplate.storageClassName=gp2 \
- --set persistence.labels.enabled=true elastic/elasticsearch -n logging
+helm install elasticsearch --set replicas=1 --set volumeClaimTemplate.storageClassName=gp2 --set persistence.labels.enabled=true elastic/elasticsearch -n logging
+```
 
 # for username
 kubectl get secrets --namespace=logging elasticsearch-master-credentials -ojsonpath='{.data.username}' | base64 -d
